@@ -1,0 +1,17 @@
+version: "2"
+
+services:
+
+  livechat:
+    #build: .
+    image: sangah/forge-viewmodel
+    ports: 
+    - "${HTTP_PORT}:3000"
+    environment: 
+    - SERVER_WEBROOT
+    logging: 
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "5"
+    restart: "unless-stopped"
