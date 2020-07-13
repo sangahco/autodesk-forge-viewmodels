@@ -29,9 +29,9 @@ if (config.credentials.client_id == null || config.credentials.client_secret == 
 let app = express();
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json({ limit: '50mb' }));
-app.use('/bim-viewer/api/forge/oauth', require('./routes/oauth'));
-app.use('/bim-viewer/api/forge/oss', require('./routes/oss'));
-app.use('/bim-viewer/api/forge/modelderivative', require('./routes/modelderivative'));
+app.use(config.server.webroot + '/api/forge/oauth', require('./routes/oauth'));
+app.use(config.server.webroot + '/api/forge/oss', require('./routes/oss'));
+app.use(config.server.webroot + '/api/forge/modelderivative', require('./routes/modelderivative'));
 app.use((err, req, res, next) => {
     console.error(err);
     res.status(err.statusCode).json(err);

@@ -12,5 +12,7 @@ services:
     environment: 
     - FORGE_CLIENT_ID
     - FORGE_CLIENT_SECRET
+    - SERVER_WEBROOT
+    - DEBUG=*
     ports:
     - ${HTTP_PORT}:3000
