@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+
+  manual:
+    build: .
+    logging: 
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "5"
+    environment: 
+    - FORGE_CLIENT_ID
+    - FORGE_CLIENT_SECRET
+    ports:
+    - ${HTTP_PORT}:80

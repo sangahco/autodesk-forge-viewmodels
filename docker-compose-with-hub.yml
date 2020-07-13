@@ -9,6 +9,9 @@ services:
       hub_net:
         aliases: 
         - ${HUB_INSTANCE}
+    environment: 
+    - FORGE_CLIENT_ID
+    - FORGE_CLIENT_SECRET
     logging: 
       driver: "json-file"
       options:

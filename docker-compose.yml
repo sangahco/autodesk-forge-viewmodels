@@ -8,7 +8,8 @@ services:
     ports: 
     - "${HTTP_PORT}:3000"
     environment: 
-    - SERVER_WEBROOT
+    - FORGE_CLIENT_ID
+    - FORGE_CLIENT_SECRET
     logging: 
       driver: "json-file"
       options:
