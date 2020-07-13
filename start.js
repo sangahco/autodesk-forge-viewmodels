@@ -27,8 +27,8 @@ if (config.credentials.client_id == null || config.credentials.client_secret == 
 }
 
 let app = express();
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.json({ limit: '50mb' }));
+app.use(config.server.webroot, express.static(path.join(__dirname, 'public')));
+app.use(config.server.webroot, express.json({ limit: '50mb' }));
 app.use(config.server.webroot + '/api/forge/oauth', require('./routes/oauth'));
 app.use(config.server.webroot + '/api/forge/oss', require('./routes/oss'));
 app.use(config.server.webroot + '/api/forge/modelderivative', require('./routes/modelderivative'));

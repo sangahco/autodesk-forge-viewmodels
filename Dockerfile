@@ -5,8 +5,8 @@ ENV SERVER_HOST="0.0.0.0" \
     SERVER_PORT=3000 \
     SERVER_NAME="PMIS"
 
-COPY . /usr/share/livechat/
-WORKDIR /usr/share/livechat/
+COPY . /usr/share/bimviewer/
+WORKDIR /usr/share/bimviewer/
 
 RUN set -ex && \
     apk add --no-cache --virtual \
