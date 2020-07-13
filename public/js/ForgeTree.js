@@ -76,6 +76,24 @@ function createNewBucket() {
   });
 }
 
+function deleteBucket(node) {
+  if (node == null) node = $('#appBuckets').jstree(true).get_selected(true)[0];
+  console.log(node);
+  var bucketKey = node.id;
+  jQuery.ajax({
+    url: 'api/forge/oss/buckets',
+    contentType: 'application/json',
+    data: JSON.stringify({ 'bucketKey': bucketKey }),
+    type: 'DELETE',
+    success: function (res) {
+      $('#appBuckets').jstree(true).refresh();
+    },
+    error: function (err) {
+      console.log(err);
+    }
+  });
+}
+
 function prepareAppBucketTree() {
   $('#appBuckets').jstree({
     'core': {
@@ -143,6 +161,14 @@ function autodeskCustomMenu(autodeskNode) {
             uploadFile();
           },
           icon: 'glyphicon glyphicon-cloud-upload'
+        },
+        deleteBucket: {
+          label: "Delete bucket",
+          action: function () {
+            var treeNode = $('#appBuckets').jstree(true).get_selected(true)[0];
+            deleteBucket(treeNode);
+          },
+          icon: 'glyphicon glyphicon-remove'
         }
       };
       break;

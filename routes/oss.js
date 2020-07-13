@@ -89,6 +89,16 @@ router.post('/buckets', async (req, res, next) => {
     }
 });
 
+router.delete('/buckets', async (req, res, next) => {
+    let bucketKey = req.body.bucketKey;
+    try {
+        await new BucketsApi().deleteBucket(bucketKey, req.oauth_client, req.oauth_token);
+        res.status(200).end();
+    } catch(err) {
+        next(err);
+    }
+});
+
 // POST /api/forge/oss/objects - uploads new object to given bucket.
 // Request body must be structured as 'form-data' dictionary
 // with the uploaded file under "fileToUpload" key, and the bucket name under "bucketKey".
