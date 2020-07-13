@@ -2,14 +2,14 @@ version: "2"
 
 services:
 
-  livechat:
-    #build: .
+  bimviewer:
     image: ${REGISTRY_URL}/autodesk-forge-viewmodels
     ports: 
     - "${HTTP_PORT}:3000"
     environment: 
     - FORGE_CLIENT_ID
     - FORGE_CLIENT_SECRET
+    - SERVER_WEBROOT
     logging: 
       driver: "json-file"
       options:

@@ -2,7 +2,7 @@ version: "3"
 
 services:
 
-  manual:
+  bimviewer:
     image: ${REGISTRY_URL}/autodesk-forge-viewmodels
     networks:
       default:
@@ -12,6 +12,7 @@ services:
     environment: 
     - FORGE_CLIENT_ID
     - FORGE_CLIENT_SECRET
+    - SERVER_WEBROOT
     logging: 
       driver: "json-file"
       options:

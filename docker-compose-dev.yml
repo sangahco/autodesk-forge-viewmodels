@@ -2,7 +2,7 @@ version: "3"
 
 services:
 
-  manual:
+  bimviewer:
     build: .
     logging: 
       driver: "json-file"
