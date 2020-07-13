@@ -173,7 +173,7 @@ function translateObject(node) {
   var bucketKey = node.parents[0];
   var objectKey = node.id;
   jQuery.post({
-    url: '/api/forge/modelderivative/jobs',
+    url: 'api/forge/modelderivative/jobs',
     contentType: 'application/json',
     data: JSON.stringify({ 'bucketKey': bucketKey, 'objectName': objectKey }),
     success: function (res) {
