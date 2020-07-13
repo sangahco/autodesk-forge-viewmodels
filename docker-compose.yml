@@ -4,7 +4,7 @@ services:
 
   livechat:
     #build: .
-    image: registry.sangah.com/autodesk-forge-viewmodels
+    image: ${REGISTRY_URL}/autodesk-forge-viewmodels
     ports: 
     - "${HTTP_PORT}:3000"
     environment: 
